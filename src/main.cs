@@ -49,7 +49,15 @@ while (true)
             }
             break;
         default:
-            Console.WriteLine($"{command}: not found");
+            string? executable = FindExecutableInPath(mainCommand);
+            if (!string.IsNullOrEmpty(executable))
+            {
+                RunExternalProgram(executable, cmdArgs.Skip(1).ToArray());
+            }
+            else
+            {
+                Console.WriteLine($"{command}: not found");
+            }
             break;
 
     }
