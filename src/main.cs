@@ -17,7 +17,7 @@ while (true) {
 
     var cmdArgs = command.Split(' ');
     string remainingArgs = string.Join(" ", cmdArgs.Skip(1));
-    Environment.echo(int.Parse(remainingArgs));
+    Environment.echo(remainingArgs);
   }
 
   Console.WriteLine($"{command}: command not found");
