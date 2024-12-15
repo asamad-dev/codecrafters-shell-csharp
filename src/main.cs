@@ -10,6 +10,6 @@ Console.Write("$ ");
 for (int i = 0, i<3, i++)
 {
     var command = Console.ReadLine();
-    command = command + "_" + "${i}"
+    command = (string)command + "_" + "${i}"
     Console.WriteLine($"{command}: command not found");
 }
