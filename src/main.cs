@@ -24,12 +24,12 @@ while (true) {
                 case "exit":
                 case "echo":
                 case "type":
-                    Console.WriteLine($"{secondArgs} is a shell builtin\n");
+                    Console.WriteLine($"{secondArgs} is a shell builtin");
                     break;
             }
             break;
         default:
-            Console.WriteLine($"{command}: command not found\n");
+            Console.WriteLine($"{command}: command not found");
             break;
 
     }
