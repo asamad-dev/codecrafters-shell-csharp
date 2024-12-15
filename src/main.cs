@@ -92,3 +92,44 @@ string? FindExecutableInPath(string fileName)
 
     return null; // Not found
 }
+
+void RunExternalProgram(string executable, string[] arguments)
+{
+    try
+    {
+        var process = new Process
+        {
+            StartInfo = new ProcessStartInfo
+            {
+                FileName = executable,
+                Arguments = string.Join(" ", arguments),
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            }
+        };
+
+        process.Start();
+
+        // Read and display the output
+        string output = process.StandardOutput.ReadToEnd();
+        string error = process.StandardError.ReadToEnd();
+
+        process.WaitForExit();
+
+        if (!string.IsNullOrEmpty(output))
+        {
+            Console.Write(output);
+        }
+
+        if (!string.IsNullOrEmpty(error))
+        {
+            Console.Error.Write(error);
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error running external program: {ex.Message}");
+    }
+}
