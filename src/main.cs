@@ -26,6 +26,7 @@ while (true) {
                 case "type":
                     Console.WriteLine($"{secondArgs} is a shell builtin");
                     break;
+            }
             break;
         default:
             Console.WriteLine($"{command}: command not found");
