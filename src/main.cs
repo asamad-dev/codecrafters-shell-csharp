@@ -16,10 +16,14 @@ while (true) {
   if (command.StartsWith("echo")) {
 
     var cmdArgs = command.Split(' ');
-    string remainingArgs = string.Join(" ", cmdArgs.Skip(1));
-    Environment.echo(remainingArgs);
+    if (cmdArgs.Length > 1)
+    {
+        string remainingArgs = string.Join(" ", cmdArgs.Skip(1));
+        Console.WriteLine("remainingArgs = {}", remainingArgs);
+        Environment.echo(remainingArgs);
+    }
   }
-
-  Console.WriteLine($"{command}: command not found");
+  else
+    Console.WriteLine($"{command}: command not found");
 
 }
