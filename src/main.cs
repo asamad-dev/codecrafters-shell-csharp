@@ -19,8 +19,8 @@ while (true) {
     if (cmdArgs.Length > 1)
     {
         string remainingArgs = string.Join(" ", cmdArgs.Skip(1));
-        Console.WriteLine("remainingArgs = {}", remainingArgs);
-        Environment.echo(remainingArgs);
+        Console.WriteLine(remainingArgs);
+        // Environment.Echo(remainingArgs);
     }
   }
   else
