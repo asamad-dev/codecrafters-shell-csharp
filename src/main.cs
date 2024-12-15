@@ -18,7 +18,7 @@ while (true) {
             Console.WriteLine(remainingArgs);
             break;
         case "type":   
-            string? cmd = cmdArgs.Length > 1 ? parts[1] : null;
+            string? cmd = cmdArgs.Length > 1 ? cmdArgs[1] : null;
 
             if (cmd == null) {
                 break;
