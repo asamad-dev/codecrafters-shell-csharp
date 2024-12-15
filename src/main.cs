@@ -5,25 +5,31 @@ using System.Net.Sockets;
 while (true) {
     Console.Write("$ ");
     var command = Console.ReadLine();
-
-    if (command.StartsWith("exit")) {
-
     var cmdArgs = command.Split(' ');
+    var mainCommand = cmdArgs[0]; // Extract the main command (first word)
 
-    Environment.Exit(int.Parse(cmdArgs[1]));
-  }
-
-  if (command.StartsWith("echo")) {
-
-    var cmdArgs = command.Split(' ');
-    if (cmdArgs.Length > 1)
+    switch (mainCommand)
     {
-        string remainingArgs = string.Join(" ", cmdArgs.Skip(1));
-        Console.WriteLine(remainingArgs);
-        // Environment.Echo(remainingArgs);
-    }
-  }
-  else
-    Console.WriteLine($"{command}: command not found");
+        case "exit":
+            Environment.Exit(int.Parse(cmdArgs[1]));
+            break;
+        case "echo":    
+            string remainingArgs = string.Join(" ", cmdArgs.Skip(1));
+            Console.WriteLine(remainingArgs);
+            break;
+        case "type":   
+            string secondArgs = cmdArgs[1];
+            switch (secondArgs)
+            {
+                case "exit":
+                case "echo":
+                case "type":
+                    Console.WriteLine($"{secondArgs} is a shell builtin");
+                    break;
+            break;
+        default:
+            Console.WriteLine($"{command}: command not found");
+            break;
 
+    }
 }
