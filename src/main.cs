@@ -6,7 +6,7 @@ while (true) {
     Console.Write("$ ");
     var command = Console.ReadLine();
     var cmdArgs = command.Split(' ');
-    var mainCommand = cmdArgs[0]; // Extract the main command (first word)
+    var mainCommand = cmdArgs[0];
 
     switch (mainCommand)
     {
@@ -18,7 +18,13 @@ while (true) {
             Console.WriteLine(remainingArgs);
             break;
         case "type":   
-            string secondArgs = cmdArgs[1];
+            string? cmd = cmdArgs.Length > 1 ? parts[1] : null;
+
+            if (cmd == null) {
+
+                break;
+
+            }
             switch (secondArgs)
             {
                 case "exit":
@@ -26,10 +32,11 @@ while (true) {
                 case "type":
                     Console.WriteLine($"{secondArgs} is a shell builtin");
                     break;
+
             }
             break;
         default:
-            Console.WriteLine($"{command}: command not found");
+            Console.WriteLine($"{command}: not found");
             break;
 
     }
