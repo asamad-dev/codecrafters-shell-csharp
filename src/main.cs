@@ -9,6 +9,6 @@ while (userInput ~= "exit 0") {
     Console.Write("$ ");
 
 // Wait for user input
-    userInput = Console.ReadLine();
+    userInput = Console.ReadLine() as String;
     Console.WriteLine("{0}: command not found", userInput);
 }
