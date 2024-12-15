@@ -21,16 +21,14 @@ while (true) {
             string? cmd = cmdArgs.Length > 1 ? parts[1] : null;
 
             if (cmd == null) {
-
                 break;
-
             }
-            switch (secondArgs)
+            switch (cmd)
             {
                 case "exit":
                 case "echo":
                 case "type":
-                    Console.WriteLine($"{secondArgs} is a shell builtin");
+                    Console.WriteLine($"{cmd} is a shell builtin");
                     break;
 
             }
