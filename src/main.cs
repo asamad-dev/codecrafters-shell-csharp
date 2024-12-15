@@ -11,7 +11,13 @@ while (true) {
     var cmdArgs = command.Split(' ');
 
     Environment.Exit(int.Parse(cmdArgs[1]));
+  }
 
+  if (command.StartsWith("echo")) {
+
+    var cmdArgs = command.Split(' ');
+    string remainingArgs = string.Join(" ", cmdArgs.Skip(1));
+    Environment.echo(int.Parse(remainingArgs));
   }
 
   Console.WriteLine($"{command}: command not found");
