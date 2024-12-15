@@ -5,7 +5,11 @@ using System.Net.Sockets;
 while (true) {
     Console.Write("$ ");
     var command = Console.ReadLine();
-    var cmdArgs = command.Split(' ');
+    if (string.IsNullOrWhiteSpace(command))
+    {
+        continue; // Skip empty input
+    }
+    var cmdArgs = command.Split(' ', StringSplitOptions.RemoveEmptyEntries);
     var mainCommand = cmdArgs[0];
 
     switch (mainCommand)
@@ -30,7 +34,9 @@ while (true) {
                 case "type":
                     Console.WriteLine($"{cmd} is a shell builtin");
                     break;
-
+                default:
+                    Console.WriteLine($"{command}: not found");
+                    break;
             }
             break;
         default:
