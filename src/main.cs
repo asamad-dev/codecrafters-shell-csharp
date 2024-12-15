@@ -35,7 +35,7 @@ while (true) {
                     Console.WriteLine($"{cmd} is a shell builtin");
                     break;
                 default:
-                    Console.WriteLine($"{command}: not found");
+                    Console.WriteLine($"{cmd}: not found");
                     break;
             }
             break;
